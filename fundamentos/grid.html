@@ -6,34 +6,43 @@
     <title>Grid</title>
 
     <style>
-      .wrapper div {
+      .wrapper * {
         background-color: royalblue;
         padding: 1rem;
       }
 
-      .wrapper div:nth-child(even) {
+      .wrapper *:nth-child(even) {
         background-color: skyblue;
       }
 
-      .wrapper {
-        display: grid;
-        grid-template-columns: 40% 200px 200px;
-        gap: 1rem;
-        grid-auto-rows: 300px;
+      @media (min-width: 500px) {
+        .wrapper {
+          display: grid;
+          grid-template-columns: [site-start] 1fr [content-start] repeat(4, 1fr) [site-end];
+          grid-template-rows: [site-top] 200px [content-top] 200px [content-bottom] 200px [site-bottom];
+          grid-gap: 0.5rem;
+        }
+      }
+
+      header, footer {
+        grid-column: site;
+      }
+
+      main {
+        grid-column: content;
+      }
+      aside {
+        grid-column: site-start / content-start;
+        grid-row: content-top / content-bottom;
       }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
+      <header>header</header>
+      <main>main</main>
+      <aside>aside</aside>
+      <footer>footer</footer>
     </div>
   </body>
 </html>
