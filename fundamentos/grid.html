@@ -22,17 +22,31 @@
       .wrapper {
         display: grid;
         gap: 1rem;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 1fr;
         grid-template-rows: repeat(3, minmax(100px, auto));
+      }
+
+      @media(min-width: 768px) {
+          .wrapper {
+            grid-template-columns: repeat(5, 1fr);
+        }
       }
 
       .wrapper > div:nth-child(1) {
         height: 400px;
         grid-column: 1 / -1;
       }
-      .wrapper > div:nth-child(3) {
-        grid-column: 2 / 5;
+
+      .wrapper > div:nth-child(2) {
+        grid-column: 1;
       }
+
+      @media(min-width: 768px) {
+          .wrapper > div:nth-child(3) {
+          grid-column: 2 / 5;
+        }
+      }
+
       .wrapper > div:nth-child(5) {
         grid-column: 1 / -1;
       }
