@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Grid</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
 
-  <style>
+    <style>
+      body {
+        margin: 0;
+      }
 
-    body {
-      margin: 0;
-    }
-    
-    .wrapper div {
-      background-color: royalblue;
-      padding: 1rem;
-    }
+      .wrapper div {
+        background-color: royalblue;
+        padding: 1rem;
+      }
 
-    .wrapper div:nth-child(even) {
-      background-color: skyblue;
-    }
+      .wrapper div:nth-child(even) {
+        background-color: skyblue;
+      }
 
-    .wrapper {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 100px);
-    }
+      .wrapper {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, minmax(100px, auto));
+      }
 
-    .wrapper > div:nth-child(1) {
-      grid-column: 1 / -1;
-    }
-
-  </style>
-
-</head>
-<body>
-  
-  <div class="wrapper">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-
-  </div>
-
-</body>
+      .wrapper > div:nth-child(1) {
+        height: 400px;
+        grid-column: 1 / -1;
+      }
+      .wrapper > div:nth-child(3) {
+        grid-column: 2 / 5;
+      }
+      .wrapper > div:nth-child(5) {
+        grid-column: 1 / -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </body>
 </html>
